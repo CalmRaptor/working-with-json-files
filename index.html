@@ -5,36 +5,30 @@
          src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
       ></script>
 
-      <!-- <script type="text/javascript" src="people.json"></script> -->
-
       <script>
          $(function () {
             var people = [];
 
-            $.getJSON(
-               "https://raw.githubusercontent.com/CalmRaptor/working-with-json-files/main/people.json?token=ATWCPKJSNCQOZJEAQOK6HDDAUKHAK",
-               function (data) {
-                  //working with json files\people.json
-                  $.each(data.person, function (i, f) {
-                     var tblRow =
-                        "<tr>" +
-                        "<td>" +
-                        f.firstName +
-                        "</td>" +
-                        "<td>" +
-                        f.lastName +
-                        "</td>" +
-                        "<td>" +
-                        f.job +
-                        "</td>" +
-                        "<td>" +
-                        f.roll +
-                        "</td>" +
-                        "</tr>";
-                     $(tblRow).appendTo("#userdata tbody");
-                  });
-               }
-            );
+            $.getJSON("people.json", function (data) {
+               $.each(data.person, function (i, f) {
+                  var tblRow =
+                     "<tr>" +
+                     "<td>" +
+                     f.firstName +
+                     "</td>" +
+                     "<td>" +
+                     f.lastName +
+                     "</td>" +
+                     "<td>" +
+                     f.job +
+                     "</td>" +
+                     "<td>" +
+                     f.roll +
+                     "</td>" +
+                     "</tr>";
+                  $(tblRow).appendTo("#userdata tbody");
+               });
+            });
          });
       </script>
    </head>
